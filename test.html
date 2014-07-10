@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="lib/TweenMax-1.12.1.min.js"></script>
+  <script src="lib/jquery-1.11.0.min.js"></script>
+  <script src="lib/jquery.ui.widget.js"></script>
+  <script src="jquery.barritas.js"></script>
+  <meta charset="utf-8">
+  <title>Jose Barrita Test</title>
+  <style>
+.container {
+  position: relative;
+  min-height: 50px;
+  border: 0px solid black;
+}
+
+.box {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-color: red;
+}
+.green {
+  background-color: green;
+}
+.blue {
+  background-color: blue;
+}
+.orange {
+  background-color: orange;
+}
+/* este estilo para la barrita me deja centrar el texto
+verticalmente (line-height == div.height) */
+.bar-barrita {
+  text-align: center;
+  line-height: 50px;
+}
+  </style>
+</head>
+<body>
+  <div class="container uno">
+  </div>
+  <div class="container dos">
+  </div>
+
+  <script>
+//se crea un timeline para hacer la prueba. Este timeline animará el color
+//de fondo del div.container.dos haciéndolo gris en 2 segundos, luego escribirá "listo"
+//en consola
+tl = new TimelineMax({onComplete:function(){console.log('listo fondo gris');}});
+tl.to('.container.dos',2,{backgroundColor:'#ddd'});
+
+//ejecutamos el widget contra el div.container.uno
+//sin pasarle un timeline. Genera un timeline de 2 segundos
+$('.container.uno').barritas({
+  values: [8,5,10],
+  colors: ['#f00','#0f0','#00f'],
+  duration: 2,
+  onEnd: function(){console.log('listo uno');}
+});
+
+//ejecutamos el widget contra el div.container.dos
+//pasándole el timeline que generamos arriba, con lo cual la animación durará
+//4 segundos (2 del timeline original y 2 de esta implementación de barritas).
+//Notar que al pasarle un callback "onEnd" sobrescribe
+//el callback original del timeline
+$('.container.dos').barritas({
+  values: [3200,2540,3656,2154,2368,5622],
+  duration: 2,
+  timeline: tl,
+  ease: null,
+  onEnd: function(){console.log('listo dos');}
+});
+  </script>
+</body>
+</html>

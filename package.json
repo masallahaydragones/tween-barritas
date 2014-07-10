@@ -1,0 +1,25 @@
+{
+  "name": "tween-barritas",
+  "version": "0.0.0",
+  "description": "widget para generar y animar un grafico simple de barras",
+  "main": "none",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/masallahaydragones/tween-barritas.git"
+  },
+  "keywords": [
+    "tween",
+    "widget",
+    "plot",
+    "graph"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/masallahaydragones/tween-barritas/issues"
+  },
+  "homepage": "https://github.com/masallahaydragones/tween-barritas"
+}
