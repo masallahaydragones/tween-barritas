@@ -12,10 +12,17 @@ module.exports = function(grunt) {
                     private: false
                 }
             }
+        },
+        uglify: {
+            dist: {
+                src: ['src/jquery.barritas.js'],
+                dest: 'jquery.barritas.min.js'
+            }
         }
+
     });
 
-    // grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
     // grunt.loadNpmTasks('grunt-contrib-jshint');
     // grunt.loadNpmTasks('grunt-contrib-qunit');
     // grunt.loadNpmTasks('grunt-contrib-watch');
@@ -24,5 +31,5 @@ module.exports = function(grunt) {
     // grunt.registerTask('test', ['jshint', 'qunit']);
 
     grunt.loadNpmTasks('grunt-jsdoc');
-    grunt.registerTask('default', ['jsdoc']);
+    grunt.registerTask('default', ['uglify']);
 }
